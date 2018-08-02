@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    .row.d-flex.justify-content-center.my-3
+      .col-md-6
+        h1.text-center.text-danger Users
+        ul.list-group
+            each user in data
+                li.list-group-item 
+                    span.badge.badge-primary #{user.name}
+                    <br/>
+                    span.badge.badge-danger(style = "float:right;") #{user.email_address}
+                    <br/>
+                    span.badge.badge-warning(style = "float:right;") #{user.phone_number}
+
+        
+
+
+     
+  

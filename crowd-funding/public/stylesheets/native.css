@@ -1,0 +1,18 @@
+.form-control
+    {
+        margin-top: 24px; 
+        margin-bottom: 24px;
+    }
+
+.btnx
+    {
+
+        margin:12px;
+        
+    }
+
+h1
+    {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
