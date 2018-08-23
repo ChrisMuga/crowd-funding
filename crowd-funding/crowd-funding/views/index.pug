@@ -5,10 +5,15 @@ block content
     div( class = "col-md-6" )
       form(   action  =   "register"  , method  = "post"  )
         div( class = "alert alert-primary text-right" ) Crowd Funding
+        label Name
         input( type = "text", class = "form-control" name = "name" placeholder = "Enter Name")
+        label Email Address
         input( type = "mail", class = "form-control" name = "email" placeholder = "Email Address")
+        label Phone Number
         input( type = "text", class = "form-control" name = "phone_number" placeholder = "Phone Number")
+        label Location
         input( type = "text", class = "form-control" name = "location" placeholder = "Location")
+        label Password
         input( type = "password", class = "form-control" name = "password" placeholder = "Password")
         hr
         div( class = "row d-flex justify-content-center" )
@@ -18,5 +23,5 @@ block content
             hr
             div( class = "row d-flex justify-content-center" )
               a( href = "login" )
-                span( class = "badge badge-primary" ) Already Registered? Click Here To Log-In
+                span( class = "badge badge-danger" ) Already Registered? Click Here To Log-In
 
