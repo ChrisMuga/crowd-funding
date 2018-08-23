@@ -7,6 +7,8 @@ router.get('/', UserController.home);
 //login
 router.get('/login', UserController.login);
 //users
-router.get('/users', UserController.display);
+router.get('/users', UserController.users);
+//create/insert
+router.post('/register',  UserController.create);
 
 module.exports = router;
