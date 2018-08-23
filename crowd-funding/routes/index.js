@@ -6,5 +6,7 @@ var UserController = require('../controllers/UserController.js');
 router.get('/', UserController.home);
 //login
 router.get('/login', UserController.login);
+//test-connection
+router.get('/test', UserController.display);
 
 module.exports = router;
