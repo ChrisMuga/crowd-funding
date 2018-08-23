@@ -60,12 +60,23 @@ module.exports =
     display:            function (req, res, next)
                         {
                             //define user model.
-                            const User = sequelize.define('users');
+                            const User = sequelize.define('users',{
+
+                                name: {
+                                    type: Sequelize.STRING
+                                  },
+                                  email_address: {
+                                    type: Sequelize.STRING
+                                  },
+                                  phone_number: {
+                                    type: Sequelize.STRING
+                                  }
+                            });
 
                             //fetch
 
                             User.findAll().then(users => {
-                            console.log(users)
+                            res.render('users',{users: users});
                             })
                         }
 
