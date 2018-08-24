@@ -43,7 +43,7 @@ Crowd Funding with NODE JS
  
  ## create
  
-  this is the registration function for users, utilizies sequelize js.
+  this is the registration function for users, utilizies sequelize js...
   
 
 
