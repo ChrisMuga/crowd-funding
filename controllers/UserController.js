@@ -93,7 +93,7 @@ module.exports =
 
                             User.create({
                                 name: req.body.name,
-                                email_address: req.body.email_address,
+                                email_address: req.body.email,
                                 phone_number: req.body.phone_number,
                                 id: id,
                                 password: req.body.password
