@@ -6,7 +6,7 @@ block content
             div( class = "list-group" )
                 - counter = 1
                 each user in users     
-                    a(href="#" class="list-group-item list-group-item-action" ) 
+                    a(href="/user-home/"+user.email_address class="list-group-item list-group-item-action" ) 
                         span( class = "badge badge-primary mr-3" ) #{ counter }
                         span #{ user.name } 
                         -counter ++
