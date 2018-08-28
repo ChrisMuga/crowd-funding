@@ -14,5 +14,7 @@ router.post('/register',  UserController.create);
 router.get('/hash', UserController.hashing);
 //user validation
 router.post('/validate-user', UserController.validateUser);
+// user-home
+router.get('/user-home/:id', UserController.user_home);
 
 module.exports = router;

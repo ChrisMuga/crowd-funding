@@ -97,9 +97,11 @@ var userController = module.exports =
 
     user_home:          function home (req, res, next)
                         {
+                            console.log(req.params.id);
                             
                             console.log('Home');
-                            res.send('Home');
+                            res.render('users-home');
+                           
                         
                         },
 
@@ -153,11 +155,15 @@ var userController = module.exports =
                                             if(response) 
                                             {
 
-                                             // Passwords match
+                                                // Passwords match
 
-                                            userController.user_home(req, res);
+                                                //userController.user_home(req, res);
+                                                console.log(user['email_address']);
+                                                var  id =    user['email_address'];
+                                                res.redirect('/user-home/'+id);
                                              
-                                            } else 
+                                            } 
+                                            else 
                                             {
 
                                              // Passwords don't match
