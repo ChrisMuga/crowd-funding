@@ -2,4 +2,10 @@ extends layout
 block content
     div( class = "row d-flex justify-content-center mt-3" )
         div( class = "col-md-5" )
-            div( class = "alert alert-danger text-right" )  #{user['name']} @ #{email}
+            div( class = "alert alert-danger text-right" )   User: #{user['id']}
+            div( class = "row my-2" )
+                div( class = "col-md-3" )
+                    img( src = "../img/user.png" style = "width:80px" )
+                div( class = "col-md-9" )
+                    h1  #{user['name']}
+                    h2  #{user['location']} 

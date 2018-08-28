@@ -34,6 +34,9 @@ const User = sequelize.define('users',{
       phone_number: {
         type: Sequelize.STRING
       },
+      location:     {
+          type: Sequelize.STRING
+      },
       password: {
           type: Sequelize.STRING
       }
@@ -145,11 +148,12 @@ var userController = module.exports =
                                             pass    =   hash;
                                             User.create({
                                 
-                                                name: req.body.name,
-                                                email_address: req.body.email,
-                                                phone_number: req.body.phone_number,
-                                                id: id,
-                                                password: pass
+                                                name:           req.body.name,
+                                                email_address:  req.body.email,
+                                                phone_number:   req.body.phone_number,
+                                                location:       req.body.location,
+                                                id:             id,
+                                                password:       pass
                 
                                               });
                                         });
@@ -160,6 +164,7 @@ var userController = module.exports =
                             //  res.send(req.body);
                             var email   =   req.body.email;
                             console.log(email);
+
                             res.redirect('/user-home/'+email);
 
                         },
