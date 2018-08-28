@@ -39,7 +39,8 @@ const User = sequelize.define('users',{
       }
 });
 
-module.exports = 
+
+var userController = module.exports = 
 {
 
 
@@ -92,6 +93,16 @@ module.exports =
                             })
                         },
 
+    //home
+
+    user_home:          function home (req, res, next)
+                        {
+                            
+                            console.log('Home');
+                            res.send('Home');
+                        
+                        },
+
     //create + hashing using bcrypt.
     create:             function (req, res, next)
                         {
@@ -124,8 +135,7 @@ module.exports =
 
     validateUser:       function(req, res, next)
                         {
-                            console.log(req.body.email);
-                            console.log(req.body.password);
+                        
                             User.findOne
                             (
                                 {
@@ -140,14 +150,19 @@ module.exports =
                                         console.log(user.get('password'));
                                         var hash    =   user.get('password');
                                         bcrypt.compare( req.body.password , hash, function(err, response) {
-                                            if(response) {
+                                            if(response) 
+                                            {
+
                                              // Passwords match
-                                             //res.send('Passwords Match!');
-                                             this.home;
+
+                                            userController.user_home(req, res);
                                              
-                                            } else {
+                                            } else 
+                                            {
+
                                              // Passwords don't match
                                              res.send('Passwords don\'t match');
+
                                             } 
                                           });
                                     }
@@ -160,20 +175,16 @@ module.exports =
     hashing:            function (req, res, next)
                         {
                             res.send('Hello World');
-                            bcrypt.hash('myPassword', 10, function(err, hash) {
-                                // Store hash in database
-                                console.log(hash);
-                              });
+                            bcrypt.hash('myPassword', 10, function(err, hash) 
+                                {
+                                    // Store hash in database
+                                    console.log(hash);
+                                });
                             
                         },
 
 
-    //home
 
-    home:               function (req, res, next)
-                        {
-                            res.send("Home");
-                        }
 
 
 
