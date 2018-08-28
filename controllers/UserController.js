@@ -98,9 +98,37 @@ var userController = module.exports =
     user_home:          function home (req, res, next)
                         {
                             console.log(req.params.id);
+                            var email   =   req.params.id;
                             
-                            console.log('Home');
-                            res.render('users-home');
+                            //fetch user data
+
+                            user =  User.findOne
+                            (
+                                {
+                                    where:  {
+
+                                                email_address:  email
+
+                                            }
+                                }
+                            
+                            ).then(user => {
+                                
+                                console.log('Home');
+                                res.render('users-home', 
+                                    {
+
+                                        email:  email,
+                                        user:   user
+
+                                    }
+                                );
+                              });
+
+                            
+                            
+                           
+                            
                            
                         
                         },
@@ -128,8 +156,11 @@ var userController = module.exports =
 
                             
 
-                              console.log(req.body);
-                              res.send(req.body);
+                            //  console.log(req.body);
+                            //  res.send(req.body);
+                            var email   =   req.body.email;
+                            console.log(email);
+                            res.redirect('/user-home/'+email);
 
                         },
 
