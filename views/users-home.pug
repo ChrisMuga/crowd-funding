@@ -4,8 +4,16 @@ block content
         div( class = "col-md-5" )
             div( class = "alert alert-danger text-right" )   User: #{user['id']}
             div( class = "row my-2" )
-                div( class = "col-md-3" )
+                div( class = "col-md-2" )
                     img( src = "../img/user.png" style = "width:80px" )
-                div( class = "col-md-9" )
-                    h1  #{user['name']}
-                    h2  #{user['location']} 
+                div( class = "col-md-10" )
+                    h1  
+                        span( class = "badge badge-primary" )       #{user['name']}
+                    h2  
+                        span( class = "badge badge-warning" )       #{user['location']} 
+                    h4  
+                        span( class = "badge badge-secondary" )     #{user['email_address']} 
+                    p  
+                        span( class = "badge badge-success" )       #{user['phone_number']} 
+                    p  
+                        span( class = "badge badge-dark" )          Since #{user['createdAt']} 
