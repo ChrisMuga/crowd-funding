@@ -92,7 +92,7 @@ module.exports =
                             })
                         },
 
-    //create
+    //create + hashing using bcrypt.
     create:             function (req, res, next)
                         {
                             //create random number
@@ -120,6 +120,41 @@ module.exports =
 
                         },
 
+    //validating users / auth
+
+    validateUser:       function(req, res, next)
+                        {
+                            console.log(req.body.email);
+                            console.log(req.body.password);
+                            User.findOne
+                            (
+                                {
+                                    where:  {
+                                                email_address: req.body.email
+                                            }
+                                }
+                            ).
+                            then(
+                                    user => 
+                                    {
+                                        console.log(user.get('password'));
+                                        var hash    =   user.get('password');
+                                        bcrypt.compare( req.body.password , hash, function(err, response) {
+                                            if(response) {
+                                             // Passwords match
+                                             //res.send('Passwords Match!');
+                                             this.home;
+                                             
+                                            } else {
+                                             // Passwords don't match
+                                             res.send('Passwords don\'t match');
+                                            } 
+                                          });
+                                    }
+                                );
+                           
+                        },
+
     //bcrypt
     
     hashing:            function (req, res, next)
@@ -130,6 +165,14 @@ module.exports =
                                 console.log(hash);
                               });
                             
+                        },
+
+
+    //home
+
+    home:               function (req, res, next)
+                        {
+                            res.send("Home");
                         }
 
 
