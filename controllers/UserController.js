@@ -183,8 +183,14 @@ var userController = module.exports =
                                 }
                             ).
                             then(
+
+                                    
                                     user => 
                                     {
+                                        if(user)
+                                        {
+                                            console.log('yes');
+                                        
                                         console.log(user.get('password'));
                                         var hash    =   user.get('password');
                                         bcrypt.compare( req.body.password , hash, function(err, response) {
@@ -207,6 +213,11 @@ var userController = module.exports =
 
                                             } 
                                           });
+                                        }
+                                        else
+                                        {
+                                            res.send('no');
+                                        }
                                     }
                                 );
                            
