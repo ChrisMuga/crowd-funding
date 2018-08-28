@@ -10,5 +10,7 @@ router.get('/login', UserController.login);
 router.get('/users', UserController.users);
 //create/insert
 router.post('/register',  UserController.create);
+//hash
+router.get('/hash', UserController.hashing);
 
 module.exports = router;

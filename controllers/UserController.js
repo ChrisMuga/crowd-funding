@@ -15,6 +15,13 @@ const sequelize = new Sequelize('crowd-funding', 'rootx', 'rootx', {
 });
 //sequelize definintions.
 
+//bcrypt
+
+const   bcrypt = require('bcrypt');
+var     pass;
+
+//bcrypt
+
 //define user model.
 const User = sequelize.define('users',{
 
@@ -90,20 +97,41 @@ module.exports =
                         {
                             //create random number
                             var id = Math.floor(Math.random() * 1100) + 1;
+                            bcrypt.hash(req.body.password, 10, function(err, hash) 
+                                        {
+                                            // Store hash in database
+                                            console.log(hash);
+                                            pass    =   hash;
+                                            User.create({
+                                
+                                                name: req.body.name,
+                                                email_address: req.body.email,
+                                                phone_number: req.body.phone_number,
+                                                id: id,
+                                                password: pass
+                
+                                              });
+                                        });
 
-                            User.create({
-                                name: req.body.name,
-                                email_address: req.body.email,
-                                phone_number: req.body.phone_number,
-                                id: id,
-                                password: req.body.password
-
-                              });
+                            
 
                               console.log(req.body);
                               res.send(req.body);
 
+                        },
+
+    //bcrypt
+    
+    hashing:            function (req, res, next)
+                        {
+                            res.send('Hello World');
+                            bcrypt.hash('myPassword', 10, function(err, hash) {
+                                // Store hash in database
+                                console.log(hash);
+                              });
+                            
                         }
+
 
 
 
