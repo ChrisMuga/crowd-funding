@@ -49,9 +49,13 @@ Crowd Funding with NODE JS
 
   handles authentication operations and validates a user's credential's credibility before rendering their home/profile pages.
 
- #user-home/[id]
+ ## user-home/[id]
   
   fetches the user details, renders them on his profile and renders the page in turn. follows validation.
+
+ ## create-campaign
+
+  renders the UI for campaign creation 
 
 
   
