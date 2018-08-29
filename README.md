@@ -43,7 +43,13 @@ Crowd Funding with NODE JS
  
  ## create
  
-  this is the registration function for users, utilizies sequelize js...
+  this is the registration function for users, utilizies sequelize js for ORM issues and bcrypt js for hashing passwords
+
+  ## validate-user
+
+    handles authentication operations and validates a user's credential's credibility before rendering their home/profile pages.
+
+
   
 
 
