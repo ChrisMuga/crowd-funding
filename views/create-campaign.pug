@@ -4,3 +4,11 @@ block content
         div( class = "col-md-7" )
             div( class = "alert alert-info" ) 
                 h3 Create Campaign
+            form( action = "#" method = "POST" )
+                input( type = "text" class = "form-control" placeholder = "Campaign Title" name = "title" )
+                input( type = "text" class = "form-control" placeholder = "Purpose/Reason" name = "purpose" )
+                input( type = "number" class = "form-control" placeholder = "Target Amount" name = "amount" )
+                textarea(name="description", cols="30", rows="10" placeholder = "Brief Description" class = "form-control" )
+                hr( class = "my-3" )
+                button( class = "form-control btn btn-success" type = "submit" )    Create
+                button( class = "form-control btn btn-secondary" type = "reset" )     Clear
