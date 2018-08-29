@@ -1,8 +1,11 @@
 extends layout
 block content
+        <title> Login </title>
         div( class = "alert alert-success my-2" ) Login
         div( class = "row my-2 d-flex justify-content-center" )
-                div( class = "col-md-4" )
+                div( class = "col-md-4 text-center" )
+                        img( src = "/img/social-care.png" )
+                        hr( class = "my-3" )
                         form( action = "validate-user" method = "post" )
                                 input( type = "text" class = "form-control" placeholder = "Email Address" name = "email" )
                                 input( type = "password" class = "form-control" placeholder = "Password" name = "password" )

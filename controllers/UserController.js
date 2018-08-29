@@ -64,7 +64,7 @@ var userController = module.exports =
     login:              function (req, res, next)
                         {
 
-                            res.render('login');
+                            res.render('login', {title: "Login"});
 
                         },
     
@@ -92,7 +92,7 @@ var userController = module.exports =
                             //fetch
 
                             User.findAll().then(users => {
-                            res.render('users',{users: users});
+                            res.render('users',{users: users, title: "Users"});
                             })
                         },
 
@@ -121,8 +121,9 @@ var userController = module.exports =
                                 res.render('users-home', 
                                     {
 
-                                        email:  email,
-                                        user:   user
+                                        email:      email,
+                                        user:       user,
+                                        title:      user.name
 
                                     }
                                 );
@@ -240,7 +241,7 @@ var userController = module.exports =
 
     create_campaign:    function ( req, res, next)
                         {
-                            res.render('create-campaign');
+                            res.render('create-campaign', {title: "Campaign: Create"});
                         },
 
     contribute:         function (req, res, next)
