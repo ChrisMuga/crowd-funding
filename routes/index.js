@@ -16,5 +16,9 @@ router.get('/hash', UserController.hashing);
 router.post('/validate-user', UserController.validateUser);
 // user-home
 router.get('/user-home/:id', UserController.user_home);
+//create-campaign
+router.get('/create-campaign', UserController.create_campaign);
+//go to contributions page
+router.get('/contribute', UserController.contribute);
 
 module.exports = router;

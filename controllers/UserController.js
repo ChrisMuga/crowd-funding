@@ -236,6 +236,18 @@ var userController = module.exports =
                             
                         },
 
+    //create_campaign
+
+    create_campaign:    function ( req, res, next)
+                        {
+                            res.send('create-campaign');
+                        },
+
+    contribute:         function (req, res, next)
+                        {
+                            res.send('contribute');
+                        }
+
 
 
 
