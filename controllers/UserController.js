@@ -240,7 +240,7 @@ var userController = module.exports =
 
     create_campaign:    function ( req, res, next)
                         {
-                            res.send('create-campaign');
+                            res.render('create-campaign');
                         },
 
     contribute:         function (req, res, next)
