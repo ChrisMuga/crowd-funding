@@ -244,22 +244,12 @@ var userController = module.exports =
                             res.render('create-campaign', {title: "Campaign: Create"});
                         },
 
+    //contribute.
+
     contribute:         function (req, res, next)
                         {
                             res.render('contribute');
                         },
-
-    make_campaign:      function (req, res, next)
-                        {
-                            res.send(req.body);
-                        }
-
-
-
-
-
-
-
 
 
 }

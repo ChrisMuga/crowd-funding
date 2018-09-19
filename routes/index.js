@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var UserController = require('../controllers/UserController.js');
+var CampaignController = require('../controllers/CampaignController.js');
 
 //home
 router.get('/', UserController.home);
@@ -21,6 +22,6 @@ router.get('/create-campaign', UserController.create_campaign);
 //go to contributions page
 router.get('/contribute', UserController.contribute);
 //create campaign
-router.post('/make-campaign',UserController.make_campaign);
+router.post('/make-campaign',CampaignController.make_campaign);
 
 module.exports = router;
