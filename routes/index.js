@@ -20,5 +20,7 @@ router.get('/user-home/:id', UserController.user_home);
 router.get('/create-campaign', UserController.create_campaign);
 //go to contributions page
 router.get('/contribute', UserController.contribute);
+//create campaign
+router.post('/make-campaign',UserController.make_campaign);
 
 module.exports = router;

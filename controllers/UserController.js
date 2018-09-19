@@ -247,6 +247,11 @@ var userController = module.exports =
     contribute:         function (req, res, next)
                         {
                             res.render('contribute');
+                        },
+
+    make_campaign:      function (req, res, next)
+                        {
+                            res.send(req.body);
                         }
 
 
