@@ -246,7 +246,7 @@ var userController = module.exports =
 
     contribute:         function (req, res, next)
                         {
-                            res.send('contribute');
+                            res.render('contribute');
                         }
 
 
