@@ -15,31 +15,25 @@ const sequelize = new Sequelize('crowd-funding', 'rootx', 'rootx', {
 });
 //sequelize definintions.
 
-//bcrypt
-
-const   bcrypt = require('bcrypt');
-var     pass;
-
-//bcrypt
-
 //define user model.
-const User = sequelize.define('users',{
+const Campaign = sequelize.define('campaigns',{
 
-    name: {
+    user_id: {
         type: Sequelize.STRING
       },
-      email_address: {
+      title: {
         type: Sequelize.STRING
       },
-      phone_number: {
+      purpose: {
         type: Sequelize.STRING
       },
-      location:     {
+      target_amount:     {
           type: Sequelize.STRING
       },
-      password: {
+      description: {
           type: Sequelize.STRING
-      }
+      },
+      
 });
 
 //create CampaignController Object and export its methods and members.
@@ -49,6 +43,16 @@ var CampaignController = module.exports =
     make_campaign:      function (req, res, next)
     {
         res.send(req.body);
+        Campaign.create({
+                                
+            name:           req.body.name,
+            email_address:  req.body.email,
+            phone_number:   req.body.phone_number,
+            location:       req.body.location,
+            id:             id,
+            password:       pass
+
+          });
     }
 
 }
