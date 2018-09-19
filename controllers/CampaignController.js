@@ -42,15 +42,16 @@ var CampaignController = module.exports =
 
     make_campaign:      function (req, res, next)
     {
+        var id = Math.floor(Math.random() * 1100) + 1;
         res.send(req.body);
         Campaign.create({
-                                
-            name:           req.body.name,
-            email_address:  req.body.email,
-            phone_number:   req.body.phone_number,
-            location:       req.body.location,
-            id:             id,
-            password:       pass
+            id:               id,                
+            user_id:          req.body.name,
+            title:            req.body.title,
+            purpose:          req.body.purpose,
+            target_amount:    req.body.target_amount,
+            description:      req.body.description
+           
 
           });
     }
