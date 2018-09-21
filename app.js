@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -14,6 +15,7 @@ var bodyParser = require('body-parser')
 
 var app = express();
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -22,6 +24,10 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(session({ secret: 'this-is-a-secret-token', cookie: { maxAge: 60000 }}));
+app.use(cookieParser())
+
 
 app.use(logger('dev'));
 app.use(express.json());

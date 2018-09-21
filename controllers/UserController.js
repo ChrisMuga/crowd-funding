@@ -1,6 +1,6 @@
-express = require('express');
-app = express();
-var session = require('express-session');
+
+
+
 //sequelize definintions
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('crowd-funding', 'rootx', 'rootx', {
@@ -128,7 +128,8 @@ var userController = module.exports =
 
                                         email:      email,
                                         user:       user,
-                                        title:      user.name
+                                        title:      user.name,
+                                        userx:       req.session.user
 
                                     }
                                 );
@@ -208,12 +209,17 @@ var userController = module.exports =
                                                 //userController.user_home(req, res);
                                                 console.log(user['email_address']);
                                                 var  id =    user['email_address'];
-                                               
+
                                                 
-                                                app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
-                                                res.setHeader('Content-Type', 'text/html')
-                                                res.send(req.session.cookie.maxAge);
-                                                //res.redirect('/user-home/'+id);
+                                                req.session.user= id;
+                                                
+                                                
+                                                
+                                                
+                                                //res.send(req.session.someAttribute);
+                                              
+                                            
+                                                res.redirect('/user-home/'+id);
                                              
                                             } 
                                             else 
