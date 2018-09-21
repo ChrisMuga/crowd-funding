@@ -1,3 +1,6 @@
+express = require('express');
+app = express();
+var session = require('express-session');
 //sequelize definintions
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('crowd-funding', 'rootx', 'rootx', {
@@ -21,6 +24,8 @@ const   bcrypt = require('bcrypt');
 var     pass;
 
 //bcrypt
+
+
 
 //define user model.
 const User = sequelize.define('users',{
@@ -203,7 +208,12 @@ var userController = module.exports =
                                                 //userController.user_home(req, res);
                                                 console.log(user['email_address']);
                                                 var  id =    user['email_address'];
-                                                res.redirect('/user-home/'+id);
+                                               
+                                                
+                                                app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
+                                                res.setHeader('Content-Type', 'text/html')
+                                                res.send(req.session.cookie.maxAge);
+                                                //res.redirect('/user-home/'+id);
                                              
                                             } 
                                             else 
@@ -239,14 +249,14 @@ var userController = module.exports =
 
     //create_campaign
 
-    create_campaign:    function ( req, res, next)
+    create_campaign:    function ( req, res, next )
                         {
                             res.render('create-campaign', {title: "Campaign: Create"});
                         },
 
     //contribute.
 
-    contribute:         function (req, res, next)
+    contribute:         function ( req, res, next )
                         {
                             res.render('contribute', {title:"Campaign: Contribute"} );
                         },
